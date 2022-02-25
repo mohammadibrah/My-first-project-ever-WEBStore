@@ -1,0 +1,30 @@
+<h2>Add new product</h2>
+
+<div *ngIf="product">
+    <div *ngIf="product.imgUrl">
+        <img [src]="product.imgUrl" [alt]="product.name" width="600" height="400">
+    </div>
+  <h3>{{ product.name }}</h3>
+  <h4>{{ product.price | currency }}</h4>
+  <p>{{ product.description }}</p>
+  <div>
+    <div>
+      <label for="product-name">Product name: </label>
+      <input id="product-name" [(ngModel)]="product.name">
+    </div>
+    <div>
+      <label for="product-price">Product price:</label>
+      <input id="product-price" [(ngModel)]="product.price">
+    </div>
+    <div>
+      <label for="product-description">Product description:</label>
+      <input id="product-description" [(ngModel)]="product.description">
+    </div>
+    <div>
+        <label for="product-img">Image URL </label>
+        <input id="product-img" [(ngModel)]="product.imgUrl">
+    </div>
+    <button (click)="goBack()">Cancel</button>
+    <button (click)="save()">Save</button>
+  </div>
+</div>

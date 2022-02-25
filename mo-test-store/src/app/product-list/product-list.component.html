@@ -1,0 +1,28 @@
+<h2>Products</h2>
+<mat-card class="example-card" *ngFor="let product of products">
+  <a [title]="product.name + ': ' + product.description"
+    [routerLink]="['/products', product._id]">
+    <mat-card-header class="card-content">
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title >{{ product.name }}</mat-card-title>
+      <mat-card-subtitle>Mobile Phones</mat-card-subtitle>
+    </mat-card-header>
+      <img *ngIf="product.imgUrl" mat-card-image [src]="product.imgUrl" [alt]="product.name" onerror="this.src='https://sc04.alicdn.com/kf/He0ef70deca0e4ec5a9a6d8be56fcf84aB.png'">
+    
+  </a>
+  <div>
+    <mat-card-content class="card-content">
+      <mat-card-title>{{ product.price | currency }}</mat-card-title>
+      <!-- <p *ngIf="product.description">Description: {{ product.description }}</p> -->
+    </mat-card-content>
+    <mat-card-actions class="card-content">
+      <button mat-button (click)="addToCart(product)">Add To Cart</button>
+      <button class="hide" mat-button (click)="addToCart(product)">Edit</button>
+    </mat-card-actions>
+  </div>
+  
+</mat-card>
+  <!-- <button (click)="share()">Share</button> -->
+  <!-- <app-product-alerts [product]="product" (notify)="onNotify()">
+  </app-product-alerts> -->
+  

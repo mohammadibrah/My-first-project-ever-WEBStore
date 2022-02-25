@@ -1,0 +1,19 @@
+<div class="justify-left">
+  <a [routerLink]="['/']">
+    <h1>My Store</h1>
+  </a>
+</div>
+
+<div class="justify-right">
+  <a routerLink="/newproduct" class="button fancy-button"> 
+    <i class="material-icons">add</i>
+    Add Product
+  </a>
+  
+  <a *ngIf="cartService.items.length > 0" routerLink="/cart" class="button fancy-button" [matBadge]="cartService.items.length" matBadgePosition="after" matBadgeColor="accent">
+    <i class="material-icons">shopping_cart</i>
+    Checkout
+  </a>
+</div>
+
+

@@ -1,0 +1,33 @@
+<h2>Product Details</h2>
+
+<div *ngIf="product">
+  <div *ngIf="product.imgUrl">
+    <img [src]="product.imgUrl" [alt]="product.name" onerror="this.src='https://sc04.alicdn.com/kf/He0ef70deca0e4ec5a9a6d8be56fcf84aB.png'" width="600" height="400">
+  </div>
+  <h3>{{ product.name }}</h3>
+  <h4>{{ product.price | currency }}</h4>
+  <p>{{ product.description }}</p>
+  <button (click)="addToCart(product)">Add To Cart</button>
+  <button (click)="goBack()">Back</button>
+  <button (click)="editActivated()">Edit</button>
+  <div class="editDetails" *ngIf="activated">
+    <div>
+      <label for="product-name">Product name: </label>
+      <input id="product-name" [(ngModel)]="product.name">
+    </div>
+    <div>
+      <label for="product-price">Product price:</label>
+      <input id="product-price" [(ngModel)]="product.price">
+    </div>
+    <div>
+      <label for="product-description">Product description:</label>
+      <input id="product-description" [(ngModel)]="product.description">
+    </div>
+    <div>
+      <label for="product-img">Image URL </label>
+      <input id="product-img" [(ngModel)]="product.imgUrl">
+    </div>
+    <button (click)="cancel()">Cancel</button>
+    <button (click)="save()">Save</button>
+  </div>
+</div>
